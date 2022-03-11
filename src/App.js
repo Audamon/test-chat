@@ -5,9 +5,9 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import Header from './compnents/Header.js';
-import SideBar from './compnents/SideBar.js';
-import Chat from './compnents/Chat.js';
+import Header from './components/Header.js';
+import SideBar from './components/SideBar.js';
+import Chat from './components/Chat.js';
 import './App.css';
 
 function App() {
