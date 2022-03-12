@@ -13,11 +13,13 @@ import FileCopyIcon from '@material-ui/icons/FileCopy';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 import { useCollection } from 'react-firebase-hooks/firestore';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function SideBar() {
-    const [ channels, loading, error] = useCollection(db.collection('rooms'));
+    const [ channels] = useCollection(db.collection('rooms'));
+    const [user] = useAuthState(auth);
   return (
     <SideBarContainer>
         <SideBarHeader>
@@ -25,7 +27,7 @@ function SideBar() {
                 <h2>Papa</h2> 
                 <h3>
                     <FiberManualRecordIcon />
-                    João
+                    {user?.displayName}
                 </h3>
             </SideBarInfo>
             <CreateIcon />
